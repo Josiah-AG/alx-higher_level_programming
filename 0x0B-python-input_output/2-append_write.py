@@ -1,19 +1,17 @@
 #!/usr/bin/python3
 """
-Module for append_after method.
+append_write module
 """
 
 
-def append_after(filename="", search_string="", new_string=""):
-    '''Method for inserting text after search string.'''
-    lines = []
-    with open(filename, "r", encoding="utf-8") as f:
-        lines = f.readlines()
-        i = 0
-        while i < len(lines):
-            if search_string in lines[i]:
-                lines[i:i + 1] = [lines[i], new_string]
-                i += 1
-            i += 1
-    with open(filename, "w", encoding="utf-8") as f:
-        f.writelines(lines)
+def append_write(filename="", text=""):
+    """
+    write_file - appends a string at the end of a text file (UTF8),
+                and returns the number of characters added:
+    Args:
+        filename: name of the file
+        text: text to be written
+    Return: number of bytes written.
+    """
+    with open(filename, mode="a", encoding="UTF-8") as f:
+        return (f.write(text))
