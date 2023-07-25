@@ -22,9 +22,13 @@ request(apiUrl, function (error, response, body) {
         }
         return acc;
       }, {});
-      console.log(usersWithCompletedTasks);
+      
+      for (const userId in usersWithCompletedTasks) {
+        console.log(`User ${userId} has completed ${usersWithCompletedTasks[userId]} tasks.`);
+      }
     } catch (e) {
       console.error('Error parsing the response body:', e);
     }
   }
 });
+
